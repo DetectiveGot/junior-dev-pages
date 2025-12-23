@@ -1,43 +1,14 @@
 import React from "react";
 import Link from "next/link";
-import "../styles/header_styles.css";
-import RefreshButton from "./refresh_btn";
+import { Button } from "../ui/Button";
 
-export default function Header() {
+export default function Header({curPage}:{curPage:string}) {
     return (
-        <header className="head">
-            <div className="background"></div>
-            <nav className="nav-head">
-                <Link href="/">Home</Link>
-                <Link href="/problems">Problems</Link>
-                <Link href="/contests">Contests</Link>
-                <Link href="/about">About</Link>
-                <RefreshButton />
-            </nav>
-        </header>
+        <nav className="flex items-center justify-center text-xl font-bold text-white gap-x-16">
+            <Link href="/"><Button variant={curPage==="home"?"underlined":"underline"}>Home</Button></Link>
+            <Link href="/problems"><Button variant={curPage==="problems"?"underlined":"underline"}>Problems</Button></Link>
+            <Link href="/contests"><Button variant={curPage==="contests"?"underlined":"underline"}>Contests</Button></Link>
+            <Link href="/about"><Button variant={curPage==="about"?"underlined":"underline"}>About</Button></Link>
+        </nav>
     );
 }
-
-// import React from "react";
-// import Link from "next/link";
-// import "../styles/header.css"
-
-// export default function Header() {
-//     return (
-//         <div className = "head">
-//             <div className = "webname">
-//                 <Link href="/"><img className = "logo" src = "/logo.png" alt="Junior Dev"></img></Link>
-//                 <Link href="/"><h1 style={{color:"black",marginLeft:"10px"}}>Junior Dev</h1></Link>
-//             </div>
-//             <div className="headTextContent">
-//                 <div className="headText">
-//                     <p><Link href="/">Home</Link></p>
-//                     <p><Link href="/problems">Problems</Link></p>
-//                     <p><Link href="/contests">Contests</Link></p>
-//                     <p><Link href="/settings">Settings</Link></p>
-//                     <p><Link href="/">Help5</Link></p>
-//                 </div>
-//             </div>
-//         </div>
-//     );
-// }

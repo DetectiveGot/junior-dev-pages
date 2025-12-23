@@ -1,56 +1,57 @@
-import React from "react";
+"use client"
+import React, {useState, useEffect, useRef} from "react";
 import Link from "next/link";
 import Header from "../components/header";
 import Footer from "../components/footer";
-import "../styles/home_styles.css";
+import Image from "next/image";
+import { Container } from "../ui/Container";
+import { Button } from "../ui/Button";
+
+const NAME = "JUNIOR DEV"
  
 export default function Home() {
+    const [showName, setShowName] = useState<string>("");
+    useEffect(() => {
+        if(showName.length===NAME.length) return;
+        const id = setTimeout(() => {
+            setShowName(pv => pv+NAME[pv.length]);
+        }, 100)
+        return () => {
+            clearTimeout(id);
+        }
+    }, [showName]);
     return (
-        <> 
-            <Header />
-            <div className="hero">
-                <div className="logo">
-                    <img src = "/logo.png" alt="logo-JDev" />
-                </div>
-                <div className="text-reveal-container">
-                    <h1 className="logo_name typing">Junior Dev</h1>
-                </div>
+        <div className="h-dvh w-dvw py-6 flex flex-col"> 
+            <Header curPage={"home"} />
+            <div className="flex-1 text-white flex flex-col justify-center items-center gap-y-8">
+                <Container className="flex justify-center items-center">
+                    <div>
+                        <h1 className="text-7xl font-bold">{showName}</h1>
+                        <ul className="list-disc p-6">
+                            <li>Think</li>
+                            <li>Solve</li>
+                            <li>Have fun!</li>
+                        </ul>
+                        <Footer/>
+                    </div>
+                    <div className="relative h-60 w-60">
+                        <Image
+                            src={"/images/logo.svg"}
+                            alt={"logo-JDev"}
+                            fill
+                            sizes="240px"
+                        />
+                    </div>
+                </Container>
+                <Container className="py-4 space-x-8">
+                    <a href='https://juniordev.contest.codeforces.com' target="_blank">
+                        <Button variant={"primary"} size={"lg"} className="bg-stone-900 font-bold">Join Our Codeforces</Button>
+                    </a>
+                    <Link href='/contests'>
+                        <Button variant={"primary"} size={"lg"} className="bg-cyan-500 font-bold">View Contests</Button>
+                    </Link>
+                </Container>
             </div>
-            <div className="aurora-container">
-                <Link href="https://juniordev.contest.codeforces.com/">
-                    <center className="aurora-text">Join Our Codeforces Group Here</center>
-                </Link>
-                <Link href="/contests">
-                    <center className="aurora-text">View All Contests</center>
-                </Link>
-            </div>
-            <br />
-            <Footer />
-        </>
+        </div>
     );
 }
-
-// import React from "react";
-// import Link from "next/link";
-// import Header from "../components/header";
-// import Footer from "../components/footer";
-// import "../styles/home.css"
-
-// export default function Home() {
-//     return (
-//         <>
-//             <Header/>
-//             <br></br>
-//             <br></br>
-//             <br></br>
-//             <br></br>
-//             <div className = "main">
-//                 <div className = "title"><h2>About</h2></div>
-//                 <center style = {{fontSize: "30px", margin: "30px"}}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</center>
-//                 <p style={{color:"black", fontSize:"16px"}}>opal_Inwza007x was here</p>
-//                 <p><Link className="btn-black" href="/contests">View past competetions</Link></p>
-//             </div>
-//             <Footer />
-//         </>
-//     );
-// }
