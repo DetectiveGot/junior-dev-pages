@@ -12,7 +12,7 @@ export type Member = {
 }
 
 export type Problem = {
-    id: number,
+    id: string|number,
     name: string,
     author: string[],
     contest: string,
