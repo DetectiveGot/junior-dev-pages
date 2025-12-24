@@ -45,13 +45,6 @@ export async function GET(){
     const res = await fetch(url, { cache: "no-store" });
     const data = await res.json();
 
-    // if(data.status !== 200){
-    //     return NextResponse.json(
-    //         {error: `Codeforces API Error: ${data}`},
-    //         {status: 500},
-    //     );
-    // }
-
     const contests = data.result.map(contest => {
         const start = new Date(contest.startTimeSeconds * 1000);
         const end = new Date((contest.startTimeSeconds + contest.durationSeconds) * 1000);
@@ -59,6 +52,7 @@ export async function GET(){
         return {
             id: contest.id,
             name: contest.name,
+            phase: contest.phase,
             date: `${start.toLocaleString("en-GB")} - ${end.toLocaleString("en-GB")}`,
             linkTo: `https://codeforces.com/group/${GROUP_CODE}/contest/${contest.id}`,
         }

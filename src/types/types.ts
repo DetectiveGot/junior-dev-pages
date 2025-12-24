@@ -1,6 +1,7 @@
 export type Contest = {
     id: number,
     name: string,
+    phase: string,
     date: string,
     linkTo: string,
 }
