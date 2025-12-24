@@ -2,7 +2,7 @@
 import React, {useState, useEffect, useRef} from "react";
 import Link from "next/link";
 import Header from "../components/header";
-import Footer from "../components/footer";
+import {Footer} from "../components/footer";
 import Image from "next/image";
 import { Container } from "../ui/Container";
 import { Button } from "../ui/Button";
@@ -21,18 +21,18 @@ export default function Home() {
         }
     }, [showName]);
     return (
-        <div className="h-dvh w-dvw py-6 flex flex-col"> 
+        <div className="h-dvh w-dvw flex flex-col"> 
             <Header curPage={"home"} />
             <div className="flex-1 text-white flex flex-col justify-center items-center gap-y-8">
                 <Container className="flex justify-center items-center">
                     <div>
-                        <h1 className="text-7xl font-bold">{showName}</h1>
+                        <h1 className="text-7xl font-bold text-shadow-lg">{showName}</h1>
                         <ul className="list-disc p-6">
                             <li>Think</li>
                             <li>Solve</li>
                             <li>Have fun!</li>
                         </ul>
-                        <Footer/>
+                        {/* <Footer/> */}
                     </div>
                     <div className="relative h-60 w-60">
                         <Image
@@ -43,7 +43,7 @@ export default function Home() {
                         />
                     </div>
                 </Container>
-                <Container className="py-4 space-x-8">
+                <Container className="space-x-8">
                     <a href='https://juniordev.contest.codeforces.com' target="_blank">
                         <Button variant={"primary"} size={"lg"} className="bg-stone-900 font-bold">Join Our Codeforces</Button>
                     </a>

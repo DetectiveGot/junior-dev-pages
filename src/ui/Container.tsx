@@ -7,7 +7,7 @@ const Container = forwardRef<HTMLDivElement, ContainerProps>(({className, ...pro
     return (
         <div 
             ref={ref} 
-            className={cn(className, "mx-auto max-w-7xl")} 
+            className={cn(className, "mx-auto max-w-7xl p-4")}
             {...props}
         />
     )
