@@ -21,14 +21,11 @@ export async function GET(){
         time: Math.floor(Date.now() / 1000),
     };
 
-    // Step 1: create parameter string (sorted)
     const paramStr = Object.keys(params)
         .sort()
         .map(k => `${k}=${params[k]}`)
         .join("&");
         
-        
-    // Step 2: create signature
     const rand = Math.floor(100000 + Math.random() * 900000).toString();
     const sigBase = `${rand}/${method}?${paramStr}#${API_SECRET}`;
     
@@ -39,7 +36,6 @@ export async function GET(){
     
     const apiSig = rand + hash;
     
-    // Step 3: send request
     const url = new URL(`https://codeforces.com/api/${method}`);
     url.search = new URLSearchParams({
         ...params,
@@ -48,12 +44,25 @@ export async function GET(){
     
     const res = await fetch(url, { cache: "no-store" });
     const data = await res.json();
+
+    // if(data.status !== 200){
+    //     return NextResponse.json(
+    //         {error: `Codeforces API Error: ${data}`},
+    //         {status: 500},
+    //     );
+    // }
+
+    const contests = data.result.map(contest => {
+        const start = new Date(contest.startTimeSeconds * 1000);
+        const end = new Date((contest.startTimeSeconds + contest.durationSeconds) * 1000);
+
+        return {
+            id: contest.id,
+            name: contest.name,
+            date: `${start.toLocaleString("en-GB")} - ${end.toLocaleString("en-GB")}`,
+            linkTo: `https://codeforces.com/group/${GROUP_CODE}/contest/${contest.id}`,
+        }
+    });
     
-    return NextResponse.json(data);
+    return NextResponse.json(contests);
 }
-        
-        
-        
-        
-        
-        

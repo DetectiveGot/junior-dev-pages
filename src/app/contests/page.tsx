@@ -1,13 +1,28 @@
 "use client";
 import Header from "@/src/components/header";
 import { Container } from "@/src/ui/Container";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Contest } from "../../types/types";
-import { contests } from "../../data/contests";
 import Image from "next/image";
   
 export default function Contests() {
-    const [contestList] = useState<Contest[]>(contests);
+    const [contestList, setContestList] = useState<Contest[]>([]);
+
+    useEffect(() => {
+        fetch("/api/contests")
+        .then(res => {
+            if(!res.ok){
+                throw new Error("Failed to fetch contests");
+            }
+            return res.json();
+        })
+        .then((data: Contest[]) => {
+            setContestList(data);
+        })
+        .catch((err) => {
+            console.error(err);
+        });
+    }, []);
     return (
         <div>
             <Header curPage={"contests"}/>
