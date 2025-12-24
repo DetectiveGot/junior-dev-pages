@@ -7,7 +7,7 @@ import { contests } from "../../data/contests";
 import Image from "next/image";
   
 export default function Contests() {
-    const [contestList, setContestList] = useState<Contest[]>(contests);
+    const [contestList, _setContestList] = useState<Contest[]>(contests);
     return (
         <div>
             <Header curPage={"contests"}/>

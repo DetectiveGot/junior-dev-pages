@@ -2,7 +2,7 @@
 import React, {useState, useEffect, useRef} from "react";
 import Link from "next/link";
 import Header from "../components/header";
-import {Footer} from "../components/footer";
+// import {Footer} from "../components/footer";
 import Image from "next/image";
 import { Container } from "../ui/Container";
 import { Button } from "../ui/Button";

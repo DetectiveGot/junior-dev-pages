@@ -7,7 +7,7 @@ import { Problem } from "@/src/types/types";
 import { problems } from "@/src/data/problems";
 
 export default function Problems() {
-    const [problemList, setProblemList] = useState<Problem[]>(problems);
+    const [problemList, _setProblemList] = useState<Problem[]>(problems);
     const [searchProb, setSearchProb] = useState<string>("");
     const showProblem = searchProb.trim().length===0?problemList:problemList.filter((problem) => {
         const search = searchProb.trim().toLocaleLowerCase();

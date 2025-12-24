@@ -9,7 +9,7 @@ export const Footer = forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivEle
     return (
         <footer ref={ref} {...props}>
             <Link href='/'>
-               <p className={cn(className, "text-xs sm:text-sm text-white")}>© 2024 Junior Dev. All rights reserved.</p>
+               <p className={cn(className, "text-xs sm:text-sm text-white")}>© 2025 Junior Dev. All rights reserved.</p>
            </Link>
         </footer>
     )
