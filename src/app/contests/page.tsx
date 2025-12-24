@@ -2,8 +2,8 @@
 import Header from "@/src/components/header";
 import { Container } from "@/src/ui/Container";
 import { useState } from "react";
-import { Contest } from "../types/types";
-import { contests } from "../data/contest";
+import { Contest } from "../../types/types";
+import { contests } from "../../data/contest";
 import Image from "next/image";
   
 export default function Contests() {
@@ -14,10 +14,9 @@ export default function Contests() {
             <Container className="text-white">
                 <h1 className="text-4xl font-bold">Contests</h1>
                 <p>Time is displayed as UTC+7 timezone</p>
-                <input type="text"/>
-                <main className="grid grid-cols-2 gap-4">
+                <main className="grid grid-cols-2 gap-4 mt-4">
                     {contestList.map((contest) => (
-                        <a href={contest.linkTo}>
+                        <a href={contest.linkTo} key={contest.id}>
                             <div className="p-4 rounded-md bg-cyan-600 h-28 flex gap-x-6">
                                 <div className="relative h-full aspect-square">
                                     <Image
