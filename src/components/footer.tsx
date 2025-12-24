@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState, useEffect, forwardRef } from "react";
+import React, { forwardRef } from "react";
 import Link from "next/link";
 import { cn } from "../lib/utils";
 
@@ -14,3 +14,5 @@ export const Footer = forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivEle
         </footer>
     )
 })
+
+Footer.displayName = "Footer";

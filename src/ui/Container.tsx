@@ -1,7 +1,7 @@
 import React, { forwardRef } from "react"
 import { cn } from "../lib/utils"
 
-interface ContainerProps extends React.HTMLAttributes<HTMLDivElement>{};
+interface ContainerProps extends React.HTMLAttributes<HTMLDivElement>{variant?: "default" | "fluid";};
 
 const Container = forwardRef<HTMLDivElement, ContainerProps>(({className, ...props}, ref) => {
     return (
