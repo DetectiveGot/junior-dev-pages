@@ -20,8 +20,8 @@ export default function About() {
             <Container className="space-y-3">
                 <h1 className="text-4xl font-bold">Contributors</h1>
                 <ul className="list-disc grid grid-cols-2 px-8 gap-y-4">
-                    {memberList.map((member) => (
-                        <li>
+                    {memberList.map((member, idx) => (
+                        <li key={idx}>
                             <div className="min-w-0">
                                 <h1 className="text-xl font-bold">{member.name}</h1>
                                 <p className="truncate">{member.role.join(', ')}</p>
