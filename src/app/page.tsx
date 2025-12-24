@@ -23,29 +23,28 @@ export default function Home() {
     return (
         <div className="h-dvh w-dvw flex flex-col"> 
             <Header curPage={"home"} />
-            <div className="flex-1 text-white flex flex-col justify-center items-center gap-y-8">
+            <div className="flex-1 text-white flex flex-col justify-center items-center gap-y-4 sm:gap-y-8">
                 <Container className="flex justify-center items-center">
                     <div>
-                        <h1 className="text-7xl font-bold text-shadow-lg">{showName}</h1>
-                        <ul className="list-disc p-6">
+                        <h1 className="text-xl sm:text-4xl md:text-7xl font-bold text-shadow-lg">{showName}</h1>
+                        <ul className="list-disc p-4 sm:p-6">
                             <li>Think</li>
                             <li>Solve</li>
                             <li>Have fun!</li>
                         </ul>
-                        {/* <Footer/> */}
                     </div>
-                    <div className="relative h-60 w-60">
+                    <div className="relative h-40 w-40 sm:h-60 sm:w-60">
                         <Image
                             src={"/images/logo.svg"}
                             alt={"logo-JDev"}
                             fill
-                            sizes="240px"
+                            sizes="(min-width: 640) 240px, 160px"
                         />
                     </div>
                 </Container>
-                <Container className="space-x-8">
+                <Container className="space-x-4 sm:space-x-8">
                     <a href='https://juniordev.contest.codeforces.com' target="_blank">
-                        <Button variant={"primary"} size={"lg"} className="bg-stone-900 font-bold">Join Our Codeforces</Button>
+                        <Button variant={"primary"} size={"lg"} className="bg-stone-900 font-bold">Join Group</Button>
                     </a>
                     <Link href='/contests'>
                         <Button variant={"primary"} size={"lg"} className="bg-cyan-500 font-bold">View Contests</Button>

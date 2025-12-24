@@ -14,7 +14,7 @@ export default function About() {
                 <h1 className="text-4xl font-bold">About</h1>
                 <p className="text-2xl">
                     Junior dev is an organization for hosting contests on various topics 
-                    for people to practice doing problems ranging from basic coding to beyond IOI
+                    for people to practice doing problems ranging from basic coding to beyond IOI.
                 </p>
             </Container>
             <Container className="space-y-3">
