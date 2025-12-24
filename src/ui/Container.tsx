@@ -13,4 +13,5 @@ const Container = forwardRef<HTMLDivElement, ContainerProps>(({className, ...pro
     )
 })
 
+Container.displayName = "Container";
 export { Container };
