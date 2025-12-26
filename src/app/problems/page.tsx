@@ -67,8 +67,8 @@ export default function Problems() {
                             </thead>
                             <tbody>
                                 {showProblem.map((problem) => (
-                                    <tr key={problem.id} className="border-t border-stone-300">
-                                        <td className="text-center">{problem.id}</td>
+                                    <tr key={problem.id} className="border-t border-stone-300 min-w-0">
+                                        <td className="text-center truncate">{problem.id}</td>
                                         <td>
                                             <a href={problem.linkTo}>
                                                 <div className="min-w-0 transition-opacity duration-200 hover:opacity-75">
