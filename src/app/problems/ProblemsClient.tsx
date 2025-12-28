@@ -1,14 +1,9 @@
 "use client"
 
-import { Container } from "@/src/ui/Container";
-import Header from "@/src/components/header";
-import { useEffect, useState, useMemo } from "react";
+import { useState, useMemo } from "react";
 import { Problem } from "@/src/types/types";
 
 export default function ProblemsPage({problemList}:{problemList: Problem[]}) {
-    // const [problemList, setProblemList] = useState<Problem[]>([]);
-    // const problemList = await getProblems();
-    // const [loading, setLoading] = useState(true);
     const [searchProb, setSearchProb] = useState<string>("");
     const showProblem = useMemo(() => {
         return searchProb.trim().length===0?problemList:problemList.filter((problem) => {

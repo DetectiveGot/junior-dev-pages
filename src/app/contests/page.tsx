@@ -1,7 +1,5 @@
 import Header from "@/src/components/header";
-import { Container } from "@/src/ui/Container";
 import { Contest } from "../../types/types";
-import Image from "next/image";
 import ContestClient from "./ContestsClient";
 
 async function getContests(): Promise<Contest[]>{
@@ -13,7 +11,6 @@ async function getContests(): Promise<Contest[]>{
 }
   
 export default async function Contests() {
-    // const [contestList, setContestList] = useState<Contest[]>([]);
     const contestList = await getContests();
     return (
         <div>
