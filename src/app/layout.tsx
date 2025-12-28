@@ -39,11 +39,15 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased 
-          bg-[url(/images/background.svg)] min-h-dvh relative text-white
-        `}
+          min-h-dvh relative text-white
+          bg-[linear-gradient(to_top_right,rgba(1,76,105,0.95),rgba(23,163,188,0.90)),url('/images/background_pattern.svg')]
+          flex flex-col
+          `}
       >
-        {children}
-        <Footer className="fixed left-3 bottom-3"/>
+        <div className="flex-1 flex flex-col">
+          {children}
+        </div>
+        <Footer />
       </body>
     </html>
   );

@@ -21,7 +21,7 @@ export default function Home() {
         }
     }, [showName]);
     return (
-        <div className="h-dvh w-dvw flex flex-col"> 
+        <div className="flex flex-col flex-1 min-h-full"> 
             <Header curPage={"home"} />
             <div className="flex-1 text-white flex flex-col justify-center items-center gap-y-4 sm:gap-y-8">
                 <Container className="flex justify-center items-center">
